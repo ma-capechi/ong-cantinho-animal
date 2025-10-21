@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro — ONG Cantinho Animal</title>
+  <meta name="description" content="Cadastre-se para voluntariado ou doações na ONG Cantinho Animal e ajude cães abandonados.">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <!-- Header (css e script) -->
+  <div id="header"></div>
+  <script src="../js/header.js" defer></script>
+
+  <main>
+    <section class="form-cabecalho">
+    <h2>Faça seu cadastro e seja um voluntário da causa animal</h2>
+    <p>Preencha os seus dados para que possamos entrar em contato com você.</p>
+
+    <p><strong>(Você deve ser maior de 18 anos para ser voluntário)</strong></p> 
+
+    <p>Campos com * são de preenchimento obrigatórios.</p>
+    </section>
+
+    <form novalidate>
+      <div class="form-group">
+        <label for="nome">Nome completo *</label>
+        <input id="nome" name="nome" type="text" required minlength="2" placeholder="Ex: Maria Silva">
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail *</label>
+        <input id="email" name="email" type="email" required placeholder="nome@exemplo.com">
+      </div>
+
+      <div class="form-group">
+        <label for="telefone">Telefone *</label>
+        <input id="telefone" name="telefone" type="tel" data-mask="phone" required placeholder="(11) 99999-9999">
+      </div>
+
+      <div class="form-group">
+        <label for="nascimento">Data de nascimento *</label>
+        <input id="nascimento" name="nascimento" type="date" required>
+      </div>
+
+      <div class="form-group">
+        <label for="cpf">CPF (números sem traços ou pontos) *</label>
+        <input id="cpf" name="cpf" type="text" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" data-mask="cpf" placeholder="000.000.000-00" title="Formato: 000.000.000-00">
+      </div>
+
+        <div class="form-group">
+          <label for="cep">CEP *</label>
+          <input id="cep" name="cep" type="text" data-mask="cep" pattern="\d{5}-\d{3}" placeholder="00000-000" required>
+        </div>
+
+        <div class="form-group">
+          <label for="endereco">Endereço *</label>
+          <input id="endereco" name="endereco" type="text" required placeholder="Rua, número, complemento" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cidade">Cidade *</label>
+          <input id="cidade" name="cidade" required type="text" placeholder="Digite a cidade">
+        </div>
+
+        <div class="form-group">
+          <label for="estado">Estado *</label>
+          <input id="estado" name="estado" required type="text" placeholder="Digire o estado">
+        </div>
+
+      <div class="form-group">
+        <label for="interesse">Como deseja ajudar? *</label>
+        <select id="interesse" name="interesse" required>
+          <option value="">Selecione</option>
+          <option value="voluntario">Voluntariado</option>
+          <option value="veterinario">Veterinário voluntário</option>
+          <option value="parceria">Adoção responsável</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="observacoes">Observações (opcional)</label>
+        <textarea id="observacoes" name="observacoes" rows="4" placeholder="Se tiver alguma observaçào, digite aqui"></textarea>
+      </div>
+
+      <button class="button-form" type="submit">Enviar cadastro</button>
+    </form>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="ano3"></span> ONG Cantinho Animal</p>
+  </footer>
+
+  <script>
+    document.getElementById('ano3').textContent = new Date().getFullYear();
+  </script>
+
+<!-- FOMULÁRIO (script de validações e mascaras) -->
+  <script src="../js/scripts.js" defer></script>
+
+  <!-- FORMULÁRIO (Modal de sucesso) -->
+<div id="modal-sucesso" class="modal-sucesso">
+  <div class="modal-conteudo">
+    <h2>Obrigado!</h2>
+    <p>Suas informações de cadastro foram enviadas. Em breve entraremos em contato.</p>
+    <button id="fechar-modal" class="button-form">Fechar</button>
+  </div>
+</div>
+
+</body>
+</html>

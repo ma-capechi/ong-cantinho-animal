@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro — ONG Cantinho Animal</title>
+  <meta name="description" content="Cadastre-se para voluntariado ou doações na ONG Cantinho Animal e ajude cães abandonados.">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <!-- Header (css e script) -->
+  <div id="header"></div>
+  <script src="../js/header.js" defer></script>
+
+  <main>
+    <section class="doacao">
+      <div class="content">
+        <h3>Eles precisam de nós! Faça sua doação</h3>
+        <p>Doe qualquer valor e nos ajude a resgatar e cuidar de centenas de cães em situação de abandono e vulnerabilidade. Sua ajuda faz a diferença!</p>
+        <div class="card-pix">
+        <p><strong>Clique para copiar o código PIX ou escaneie o QR Code.</strong></p>
+        <button class="buttonPix" type="submit">Copiar código Pix</button>
+        <p>CÓDIGO DA CHAVE PIX: 00100100100010</p>
+        <figure>
+        <img src="../images/img-pix.png" alt="Cachorro caramelo" loading="eager" width="400" height=100%>
+        </figure>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <p>© <span id="ano3"></span> ONG Cantinho Animal</p>
+  </footer>
+  
+  <script>
+    document.getElementById('ano3').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

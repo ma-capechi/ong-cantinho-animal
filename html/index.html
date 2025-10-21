@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ONG Cantinho Animal — Quem Somos</title>
+  <meta name="description" content="ONG Cantinho Animal — resgate, cuidados e adoção de cães abandonados.">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+  <div id="header"></div>
+  <script src="../js/header.js" defer></script>
+
+  <main>
+
+    <section class="hero">
+      <div class="content">
+        <h1>Na ONG Cantinho Animal nós transformamos vidas de quatro patas</h1>
+        <p>Juntos resgatamos, cuidamos e encontramos lares amorosos para cães abandonados, conectando voluntários e apoiadores apaixonados por animais.</p>
+        <a class="button" href="cadastro.html">Seja um voluntário</a>
+      </div>
+      <figure>
+        <img src="../images/hero.png" alt="Cachorro caramelo" loading="eager" width=400px height=auto>
+      </figure>
+    </section>
+
+    <section class="info">
+      <h2>Sobre a ONG Cantinho Animal</h2>
+      <p>Informações de contato: <strong>contato@cantinhoanimal.org</strong> — WhatsApp: (11) 95345-9809</p>
+      <address>
+        Rua Cão Feliz, 189 — São Paulo, SP
+      </address>
+      <p>Visitantes são bem-vindos!</p>
+    </section>
+
+    <section class="grid">
+  <article class="card">
+    <img src="../images/projeto-resgate.png" alt="Cachorros resgatados" loading="lazy">
+    <div class="card-content">
+      <h3>Projeto Resgate</h3>
+      <p>Todo o valor arrecadado das doações é utilizado para o resgate dos cães em situação de vulnerabilidade e cuidados veterinários para então, serem direcionados à adoção.</p>
+    </div>
+    <div class="card-link">
+      <a href="cadastro.html">Faça uma doação</a>
+    </div>
+  </article>
+
+  <article class="card">
+    <img src="../images/projeto-bem-estar.png" alt="Voluntários cuidando de cães" loading="lazy">
+    <div class="card-content">
+      <h3>Projeto Bem-Estar Animal</h3>
+      <p>Fornecemos alimentação, abrigo e carinho para cães resgatados, com apoio de voluntários dedicados.</p>
+    </div>
+    <div class="card-link">
+      <a href="cadastro.html">Seja um voluntário</a>
+    </div>
+  </article>
+</section>
+</main>
+
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© <span id="ano"></span> ONG Cantinho Animal</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+
+</html>

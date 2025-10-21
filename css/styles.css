@@ -1,0 +1,547 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open sans', sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #4C341C;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+main {
+  max-width: 1300px;
+  margin: 0 auto; /* centraliza */
+  padding: 0 20px; /* respiro nas laterais */
+}
+
+/* HEADER */
+.site-header {
+  background-color: #fff;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+/* container interno que alinha logo e links */
+.header-inner {
+  max-width: 1300px;           /* usar mesmo valor do main para ficar alinhado */
+  margin: 0 auto;             /* centraliza o conteúdo */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+}
+
+/* ajusta a marca e o tamanho da imagem */
+.site-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.site-header .brand img {
+  width: 180px;
+  height: auto;
+}
+
+/* links */
+.nav a {
+  margin-left: 16px;
+  font-weight: bold;
+  color: #4C341C; /* cor padrão dos links */
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: #a77646;
+}
+
+/* link ativo */
+.nav a.active {
+  color: #9F774E;
+  border-bottom: 2px solid #9F774E;
+}
+
+
+/* === HAMBURGUER MENU === - visível apenas em telas ≤ 600px */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* overlay escuro que cobre a tela toda */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6); /* preto com opacidade de 60% */
+  display: flex;
+  justify-content: flex-end; /* empurra o painel branco pra direita */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+/* painel branco que contém os links */
+.mobile-panel {
+  background-color: #fff;
+  width: 250px;
+  height: 100%;
+  padding: 20px;
+  box-shadow: -2px 0 6px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transform: translateX(100%); /* começa fora da tela */
+  transition: transform 0.3s ease;
+}
+
+/* botão de fechar (ícone X) */
+.close-menu {
+  align-self: flex-end;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* links dentro do painel */
+.mobile-nav a {
+  display: block;
+  font-weight: bold;
+  color: #4C341C;
+  text-decoration: none;
+  margin: 8px 0;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu.open .mobile-panel {
+  transform: translateX(0); /* painel entra na tela */
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 960px) {
+  .nav {
+    display: none; /* esconde nav padrão */
+  }
+
+  .menu-toggle {
+    display: block; /* mostra o botão hamburguer */
+  }
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 32px 0px 32px 0px;
+  gap: 24px;
+}
+
+.hero .content {
+  flex: 2;;
+  max-width: 600px;
+}
+
+.hero .content p {
+  max-width: 600px;
+  margin: 12px 0px 12px 0px;
+}
+
+.hero figure {
+  flex: 0 0 auto;
+}
+
+.hero img {
+  max-width: 100%;
+  height: auto;
+}
+
+.button {
+  display: inline-block;
+  padding: 8px 16px;
+  margin-top: 16px;
+  background-color: #F4891B;
+  color: #000000;
+  border-radius: 8px;
+  transition: background 0.3s;
+  margin-bottom: 24px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ffab57;
+}
+
+/* RESPONSIVO */
+@media (max-width: 960px) {
+  .hero {
+    flex-direction: column;
+    text-align: left;
+  }
+}
+
+/* SEÇÕES */
+main {
+  padding: 20px;
+}
+
+.info {
+  background-color: #fff;
+  padding: 24px;
+  gap: 16px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* GRID E CARDS */
+.grid {
+  display: flex;
+  flex-wrap: wrap;     /* quebrar linha no mobile */
+  gap: 16px;           
+  align-items: stretch; /* faz todos os cards terem a mesma altura */
+}
+
+.grid .card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 24px;
+  gap: 16px;
+  flex: 1 1 300px;    /* mínimo 300px, cresce proporcionalmente */
+  display: flex;      /* organiza imagem e textos em coluna */
+  flex-direction: column; /* imagem em cima, texto embaixo */
+  align-items: flex-start; /* garante que o conteúdo fique no topo */
+}
+
+.grid .card img {
+  width: 100%;        /* ocupa toda a largura do card */
+  height: 200px;       /* altura fixa da imagem */
+  object-fit: cover; /* corta a imagem se precisar, sem distorcer */
+  border-radius: 12px;
+  flex-shrink: 0; /* impede que a imagem encolha */
+}
+
+.grid .card-link {
+  text-decoration: underline;
+}
+
+.card-content {
+  color: #464646;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 1; /* faz o conteúdo textual expandir e manter o card alto */
+}
+
+/* RESPONSIVO (cards) */
+@media (max-width: 960px) {
+  .grid {
+    flex-direction: column; /* cards empilham no mobile */
+  }
+}
+
+
+/* ========== FORMULÁRIO ======== */
+
+.form-cabecalho {
+  gap: 16px;
+  margin: 32px 0px 32px 0px;
+  overflow: hidden; /* também impede o colapso */
+}
+
+.form-cabecalho h2 {
+  margin-bottom: 8px; /* dá um respiro entre o título e o texto */
+}
+
+.form-cabecalho p {
+  margin-bottom: 4px; /* separa os parágrafos */
+}
+
+form {
+  max-width: 730px;
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+input, select, textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #0077cc;
+  outline: none;
+}
+
+
+.button-form {
+  display: inline-block;
+  padding: 8px 16px;
+  border: none;
+  margin-top: 16px;
+  background-color: #F4891B;
+  color: #000000;
+  border-radius: 8px;
+  transition: background 0.3s;
+  margin-bottom: 24px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button-form:hover {
+  background-color: #ffab57;
+}
+
+/* Estado de erro */
+.erro {
+  border-color: #d93025 !important;
+  background-color: #fff5f5;
+}
+
+/* Mensagem de erro */
+.msg-erro {
+  background-color: #ffeaea;
+  color: #d93025;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 5px;
+  margin-top: 4px;
+}
+
+/* FORMULÁRIO (modal de sucesso) */
+.modal-sucesso {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none; /* começa invisível */
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-conteudo {
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-conteudo h2 {
+  color: #4C341C;
+  margin-bottom: 12px;
+}
+
+.modal-conteudo p {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* MODAL (animação de entrada) */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+/* FOOTER */
+.site-footer {
+  width: 100%;
+  text-align: center;
+  padding: 16px 0;
+  background-color: #f9f9f9;
+  border-top: 2px solid #e0e0e0;
+  margin-top: 32px;
+  box-sizing: border-box;
+}
+
+.footer-inner {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+/* DOAÇÕES */
+
+/* === SEÇÃO DOAÇÃO === */
+.doacao {
+  align-items: center;
+  padding: 32px 32px;
+  background-color: #f9f9f9;
+}
+
+.doacao .content {
+  max-width: 600px;
+}
+
+.doacao h3 {
+  font-size: 28px;
+  color: #333;
+}
+
+.card-pix {
+  background-color: #fff;
+  border-radius: 24px;
+  border: 1px solid #c0c0c0;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column; 
+  gap: 16px; 
+  margin-top: 24px;
+}
+  
+
+.buttonPix {
+  align-self: center;
+  max-width: 300px;
+  background-color: #f8b400;
+  color: #000000;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.buttonPix:hover {
+  background-color: #e09c00;
+}
+
+.doacao figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Responsivo */
+@media (max-width: 960px) {
+  .doacao {
+    flex-direction: column;
+  }
+
+  .doacao figure img {
+    margin-top: 20px;
+  }
+}
+
+
+/* PROJETOS */
+
+.projeto-resgate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-top: 32px;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+}
+
+.projeto-resgate .content {
+  flex: 2;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.projeto-resgate ul {
+  list-style-position: inside; /* faz a bolinha ficar dentro do bloco */
+  padding-left: 0;             /* remove padding extra do navegador */
+  margin: 16px 0;              /* espaçamento entre parágrafo e lista */
+}
+
+.projeto-resgate ul li {
+  margin-bottom: 8px;          /* espaço entre itens */
+  line-height: 1.5;            /* mantém leitura agradável */
+}
+
+.projeto-resgate figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+.projeto-bem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-top: 32px;
+  margin-bottom: 64px;
+  flex-wrap: wrap;
+}
+
+.projeto-bem .content {
+  flex: 2;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.projeto-bem figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+/* breakpoint: ajusta layout vertical */
+@media (max-width: 1070px) {
+  .projeto-resgate {
+    flex-direction: column;
+  }
+
+  .projeto-resgate figure {
+    order: -1; /* faz a imagem subir quando a resolução for menor que 1070*/
+  }
+
+  .projeto-bem {
+    flex-direction: column;
+  }
+
+  .projeto-bem figure {
+    order: 0; /* mantém a imagem abaixo para manter padrão */
+  }
+}
